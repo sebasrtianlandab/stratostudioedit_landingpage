@@ -1,16 +1,21 @@
 import type { ReactNode } from 'react'
+import { PATHS } from '../../lib/routes'
+import { InternalLink } from './InternalLink'
 
 type CTAButtonProps = {
-  href: string
+  /** Enlace externo (URL completa) */
+  href?: string
+  /** Ruta interna (usa InternalLink, no recarga la página) */
+  to?: keyof typeof PATHS
   children: ReactNode
-  /** primary = gradient (default), secondary = solid primary */
   variant?: 'primary' | 'secondary'
   external?: boolean
   className?: string
 }
 
 export function CTAButton({
-  href,
+  href = '#',
+  to,
   children,
   variant = 'primary',
   external = false,
@@ -25,12 +30,22 @@ export function CTAButton({
       'px-6 sm:px-8 py-3 sm:py-4 bg-primary text-black text-sm hover:bg-primary/90',
   }
 
+  const classes = `${base} ${variants[variant]} ${className}`
+
+  if (to != null) {
+    return (
+      <InternalLink to={to} className={classes}>
+        {children}
+      </InternalLink>
+    )
+  }
+
   return (
     <a
       href={href}
       target={external ? '_blank' : undefined}
       rel={external ? 'noopener noreferrer' : undefined}
-      className={`${base} ${variants[variant]} ${className}`}
+      className={classes}
     >
       {children}
     </a>

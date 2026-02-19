@@ -1,11 +1,11 @@
-import { Section, Logo, CTAButton } from '../ui'
+import { Section, Logo, CTAButton, ScrollReveal } from '../ui'
 
 export function FinalCTA() {
   return (
     <Section id="contacto" center>
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
-      <div className="text-center">
+      <ScrollReveal className="text-center">
         <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-6 sm:mb-8 leading-tight">
           Eleva tu percepción digital.
         </h2>
@@ -46,7 +46,7 @@ export function FinalCTA() {
             © {new Date().getFullYear()} Strato Studio. Sistema estructurado de producción.
           </div>
         </div>
-      </div>
+      </ScrollReveal>
 
       <div className="absolute bottom-0 left-0 w-16 h-16 sm:w-24 sm:h-24 border-l border-b border-primary/10" />
       <div className="absolute bottom-0 right-0 w-16 h-16 sm:w-24 sm:h-24 border-r border-b border-primary/10" />

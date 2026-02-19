@@ -1,4 +1,4 @@
-import { Section, SectionBadge } from '../ui'
+import { Section, SectionBadge, ScrollReveal } from '../ui'
 
 const STAGES = [
   {
@@ -33,7 +33,7 @@ export function FiveStages() {
     <Section id="etapas" width="full">
       <div className="absolute inset-0 bg-grid-pattern bg-grid-pattern-60 pointer-events-none" />
 
-      <div className="relative z-10">
+      <ScrollReveal staggerChildren className="relative z-10">
         <div className="text-center mb-12 sm:mb-20">
           <SectionBadge>CÓMO TRABAJAMOS</SectionBadge>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-4 sm:mb-6 leading-tight">
@@ -50,7 +50,7 @@ export function FiveStages() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {STAGES.map((stage, index) => (
-            <div key={stage.number} className="relative group">
+            <div key={stage.number} className="stagger-item relative group">
               <div className="bg-surface border border-primary/10 p-6 sm:p-8 h-full hover:border-primary/30 transition-all">
                 <div className="relative inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-primary to-primary-dark mb-4 sm:mb-6">
                   <span className="text-xl sm:text-2xl font-semibold text-black">{stage.number}</span>
@@ -65,7 +65,7 @@ export function FiveStages() {
             </div>
           ))}
         </div>
-      </div>
+      </ScrollReveal>
     </Section>
   )
 }

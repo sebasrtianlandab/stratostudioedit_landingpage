@@ -1,4 +1,4 @@
-import { Section, SectionBadge } from '../ui'
+import { Section, SectionBadge, InternalLink, ScrollReveal } from '../ui'
 
 const LEVELS = [
   {
@@ -48,7 +48,7 @@ const LEVELS = [
 export function InterventionLevels() {
   return (
     <Section id="niveles" width="wide" className="bg-gradient-to-b from-background via-surface-alt/30 to-background">
-      <div className="relative z-10">
+      <ScrollReveal staggerChildren className="relative z-10">
         <div className="text-center mb-12 sm:mb-20">
           <SectionBadge>PROFUNDIDAD DE INTERVENCIÓN</SectionBadge>
           <h2 className="text-3xl sm:text-4xl md:text-5xl text-white mb-3 sm:mb-4">Niveles de Intervención</h2>
@@ -59,7 +59,7 @@ export function InterventionLevels() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {LEVELS.map((level, index) => (
-            <div key={index} className={`relative group ${level.featured ? 'lg:scale-105' : ''}`}>
+            <div key={index} className={`stagger-item relative group ${level.featured ? 'lg:scale-105' : ''}`}>
               {level.featured && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
                   <div className="bg-primary text-black text-xs tracking-wider px-4 sm:px-6 py-2">RECOMENDADO</div>
@@ -83,18 +83,18 @@ export function InterventionLevels() {
                       </li>
                     ))}
                   </ul>
-                  <a
-                    href="#contacto"
+                  <InternalLink
+                    to="contacto"
                     className="block w-full py-3 sm:py-4 text-center bg-primary/10 border border-primary/30 text-primary text-sm font-medium tracking-wide hover:bg-primary/20 transition-all"
                   >
                     Consultar disponibilidad
-                  </a>
+                  </InternalLink>
                 </div>
               </div>
             </div>
           ))}
         </div>
-      </div>
+      </ScrollReveal>
     </Section>
   )
 }

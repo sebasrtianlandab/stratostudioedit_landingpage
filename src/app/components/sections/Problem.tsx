@@ -1,4 +1,4 @@
-import { Section, SectionBadge } from '../ui'
+import { Section, SectionBadge, ScrollReveal } from '../ui'
 
 const PROBLEMS = [
   {
@@ -22,7 +22,7 @@ export function Problem() {
     <Section width="full" className="overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-surface-alt/20 to-background" />
 
-      <div className="relative z-10">
+      <ScrollReveal className="relative z-10">
         <div className="text-center mb-12 sm:mb-20">
           <SectionBadge>EL PROBLEMA</SectionBadge>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-4 sm:mb-6 leading-tight">
@@ -53,7 +53,7 @@ export function Problem() {
             </div>
           ))}
         </div>
-      </div>
+      </ScrollReveal>
     </Section>
   )
 }

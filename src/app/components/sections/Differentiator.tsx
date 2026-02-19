@@ -1,4 +1,4 @@
-import { Section } from '../ui'
+import { Section, ScrollReveal } from '../ui'
 
 const PILLARS = [
   { title: 'Sistema', subtitle: 'No intuición' },
@@ -14,7 +14,7 @@ export function Differentiator() {
       </div>
       <div className="absolute inset-0 bg-grid-pattern bg-grid-pattern-40 pointer-events-none" />
 
-      <div className="max-w-5xl mx-auto text-center relative z-10">
+      <ScrollReveal className="max-w-5xl mx-auto text-center relative z-10">
         <div className="flex items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-12">
           <div className="h-px w-16 sm:w-24 bg-gradient-to-r from-transparent to-primary/30" />
           <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-primary rounded-full" />
@@ -50,7 +50,7 @@ export function Differentiator() {
             ))}
           </div>
         </div>
-      </div>
+      </ScrollReveal>
     </Section>
   )
 }

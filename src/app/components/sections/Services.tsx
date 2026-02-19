@@ -1,4 +1,4 @@
-import { Section, SectionBadge, CTAButton } from '../ui'
+import { Section, SectionBadge, CTAButton, ScrollReveal } from '../ui'
 
 const SERVICES = [
   {
@@ -45,7 +45,7 @@ export function Services() {
       <div className="absolute inset-0 bg-gradient-to-b from-background via-surface-alt/10 to-background" />
       <div className="absolute inset-0 bg-grid-pattern bg-grid-pattern-50 pointer-events-none" />
 
-      <div className="relative z-10">
+      <ScrollReveal staggerChildren className="relative z-10">
         <div className="text-center mb-12 sm:mb-20">
           <SectionBadge>SERVICIOS</SectionBadge>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-4 sm:mb-6 leading-tight">
@@ -64,7 +64,7 @@ export function Services() {
           {SERVICES.map((service, index) => (
             <div
               key={index}
-              className="group relative bg-surface border border-primary/10 p-6 sm:p-8 hover:border-primary/30 transition-all"
+              className="stagger-item group relative bg-surface border border-primary/10 p-6 sm:p-8 hover:border-primary/30 transition-all"
             >
               <div className="absolute top-0 left-0 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-primary/10 to-transparent" />
               <div className="flex items-center gap-3 mb-4 sm:mb-6">
@@ -98,12 +98,12 @@ export function Services() {
                 Cada servicio puede contratarse de forma independiente o como parte de una estrategia integral.
               </p>
             </div>
-            <CTAButton href="#contacto" variant="secondary">
+            <CTAButton to="contacto" variant="secondary">
               Consultar servicios
             </CTAButton>
           </div>
         </div>
-      </div>
+      </ScrollReveal>
     </Section>
   )
 }

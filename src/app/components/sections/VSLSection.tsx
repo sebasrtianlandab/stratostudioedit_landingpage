@@ -1,8 +1,9 @@
-import { Section, CTAButton } from '../ui'
+import { Section, CTAButton, ScrollReveal } from '../ui'
 
 export function VSLSection() {
   return (
     <Section spacing="tight" width="default">
+      <ScrollReveal>
       <div>
         <div className="relative group">
           <div className="absolute -top-4 -left-4 w-6 sm:w-8 h-6 sm:h-8 border-l-2 border-t-2 border-primary" />
@@ -40,11 +41,12 @@ export function VSLSection() {
         </div>
 
         <div className="mt-8 sm:mt-12 text-center">
-          <CTAButton href="#niveles" variant="primary">
+          <CTAButton to="niveles" variant="primary">
             Ver Planes Mensuales
           </CTAButton>
         </div>
       </div>
+      </ScrollReveal>
     </Section>
   )
 }
