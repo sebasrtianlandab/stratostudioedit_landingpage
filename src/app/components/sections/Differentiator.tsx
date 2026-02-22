@@ -24,13 +24,13 @@ export function Differentiator() {
         <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-6 sm:mb-8 leading-tight">
           La diferencia no es estética.
         </h2>
-        <p className="text-4xl sm:text-5xl md:text-6xl bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent mb-8 sm:mb-12 leading-tight">
+        <p className="text-4xl sm:text-5xl md:text-6xl text-gradient-primary mb-8 sm:mb-12 leading-tight">
           Es criterio aplicado.
         </p>
 
         <div className="max-w-2xl mx-auto">
           <p className="text-base sm:text-lg text-white/50 leading-relaxed mb-12 sm:mb-16">
-            De la estrategia a la optimización: cada etapa con intención. Sistema completo, no piezas sueltas.
+            Cada transición, cada corte, cada momento tiene intención. No editamos para que se vea bien. Editamos para que se perciba como debe.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">

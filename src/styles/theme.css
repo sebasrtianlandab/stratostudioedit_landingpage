@@ -29,6 +29,14 @@ body {
 .bg-grid-pattern-50 { background-size: 50px 50px; }
 .bg-grid-pattern-60 { background-size: 60px 60px; }
 
+/* Texto en gradiente primary → primary-dark (evita repetir clases en títulos/CTAs) */
+.text-gradient-primary {
+  background: linear-gradient(to right, var(--primary), var(--primary-dark));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 /* Scroll reveal: aparición suave al entrar en viewport */
 .scroll-reveal {
   opacity: 0;

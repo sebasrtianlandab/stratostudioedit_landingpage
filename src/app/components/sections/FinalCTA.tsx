@@ -11,12 +11,11 @@ export function FinalCTA() {
         </h2>
 
         <p className="text-lg sm:text-xl text-white/40 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed">
-          Sistema completo de marketing digital y producción de contenido. Para marcas que entienden que el
-          posicionamiento estratégico no se improvisa.
+          Sistema mensual de producción para creadores y marcas que entienden que el contenido estratégico no se improvisa.
         </p>
 
         <CTAButton href="https://wa.me/51936160476" variant="primary" external>
-          Solicitar Consultoría Estratégica
+          Solicitar Producción Mensual
         </CTAButton>
 
         <div className="mt-16 sm:mt-24 pt-8 sm:pt-12 border-t border-primary/10">
@@ -25,7 +24,7 @@ export function FinalCTA() {
               <Logo />
               <div className="text-left">
                 <div className="text-white text-sm tracking-[0.2em]">STRATO STUDIO</div>
-                <div className="text-white/40 text-xs">Marketing digital y edición estratégica</div>
+                <div className="text-white/40 text-xs">Edición estratégica de contenido corto</div>
               </div>
             </div>
 

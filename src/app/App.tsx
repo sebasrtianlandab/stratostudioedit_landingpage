@@ -4,9 +4,10 @@ import {
   Hero,
   VSLSection,
   Problem,
-  FiveStages,
-  Services,
+  ProductionSystem,
+  VideoExamples,
   InterventionLevels,
+  MonthlyPackages,
   Differentiator,
   FinalCTA,
 } from './components/sections'
@@ -33,9 +34,10 @@ export default function App() {
       <Hero />
       <VSLSection />
       <Problem />
-      <FiveStages />
-      <Services />
+      <ProductionSystem />
+      <VideoExamples />
       <InterventionLevels />
+      <MonthlyPackages />
       <Differentiator />
       <FinalCTA />
     </div>

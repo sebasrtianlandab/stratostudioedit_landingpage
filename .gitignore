@@ -1,17 +1,26 @@
-# Build
-dist
-
 # Dependencies
-node_modules
+node_modules/
 
-# Local
+# Build
+dist/
+build/
+
+# Env
 .env
 .env.local
-*.local
+.env.*.local
 
-# Editor / OS
+# IDE / OS
+.idea/
+.vscode/
+*.log
 .DS_Store
 Thumbs.db
 
-# TypeScript
-*.tsbuildinfo
+# Windows: "nul" es nombre de dispositivo reservado; Git no puede indexarlo
+nul
+**/nul
+modelado/nul
+
+# Videos: superan límite de GitHub (100 MB). Alojar en CDN y poner URLs en src/app/lib/videos.ts
+public/videos/

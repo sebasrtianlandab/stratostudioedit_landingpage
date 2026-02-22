@@ -1,4 +1,4 @@
-import { Section, SectionBadge, ScrollReveal } from '../ui'
+import { Section, SectionBadge, ScrollReveal, SectionHeader, SurfaceCard } from '../ui'
 
 const PROBLEMS = [
   {
@@ -19,25 +19,24 @@ const PROBLEMS = [
 
 export function Problem() {
   return (
-    <Section width="full" className="overflow-hidden">
+    <Section id="problema" width="full" className="overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-surface-alt/20 to-background" />
 
       <ScrollReveal className="relative z-10">
-        <div className="text-center mb-12 sm:mb-20">
-          <SectionBadge>EL PROBLEMA</SectionBadge>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-4 sm:mb-6 leading-tight">
-            La mayoría publica contenido.
-            <br />
-            <span className="text-primary">Pocos construyen percepción.</span>
-          </h2>
-        </div>
+        <SectionHeader
+          badge={<SectionBadge>EL PROBLEMA</SectionBadge>}
+          title={
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-4 sm:mb-6 leading-tight">
+              La mayoría publica contenido.
+              <br />
+              <span className="text-primary">Pocos construyen percepción.</span>
+            </h2>
+          }
+        />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {PROBLEMS.map((problem, index) => (
-            <div
-              key={index}
-              className="group relative bg-surface border border-primary/10 p-6 sm:p-8 hover:border-primary/30 transition-all"
-            >
+            <SurfaceCard key={index} className="group">
               <div className="absolute top-0 right-0 w-12 sm:w-16 h-12 sm:h-16 bg-gradient-to-bl from-primary/10 to-transparent" />
               <div className="flex items-center gap-3 mb-4 sm:mb-6">
                 <div className="w-8 h-8 bg-primary/10 border border-primary/30 flex items-center justify-center flex-shrink-0">
@@ -50,7 +49,7 @@ export function Problem() {
                 <p className="text-white/40 leading-relaxed text-sm">{problem.description}</p>
               </div>
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-            </div>
+            </SurfaceCard>
           ))}
         </div>
       </ScrollReveal>
