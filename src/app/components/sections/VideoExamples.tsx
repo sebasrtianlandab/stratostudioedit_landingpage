@@ -157,7 +157,7 @@ export function VideoExamples() {
         </div>
 
         <div className="space-y-16 sm:space-y-24">
-          {LEVELS.map((level, index) => (
+          {LEVELS.map((level) => (
             <div key={level.name} className="stagger-item relative">
               <div
                 className={`absolute inset-0 bg-gradient-to-r ${level.gradient} rounded-lg blur-3xl opacity-80`}

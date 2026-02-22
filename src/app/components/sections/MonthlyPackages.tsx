@@ -52,7 +52,7 @@ export function MonthlyPackages() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-          {packages.map((pkg, index) => (
+          {packages.map((pkg) => (
             <div
               key={`${selectedPlan}-${pkg.level}`}
               className={`stagger-item relative group ${pkg.featured ? 'lg:scale-105' : ''}`}
