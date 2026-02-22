@@ -6,6 +6,8 @@ type SurfaceCardProps = {
   featured?: boolean
   /** Línea en gradiente en el borde superior */
   gradientTop?: boolean
+  /** Línea en gradiente en el borde inferior */
+  gradientBottom?: boolean
   /** Padding: default (p-6 sm:p-8) o large (p-6 sm:p-10) */
   padding?: 'default' | 'large'
   className?: string
@@ -17,6 +19,7 @@ export function SurfaceCard({
   children,
   featured = false,
   gradientTop = false,
+  gradientBottom = false,
   padding = 'default',
   className = '',
 }: SurfaceCardProps) {
@@ -29,6 +32,12 @@ export function SurfaceCard({
       {gradientTop && (
         <div
           className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-primary-dark"
+          aria-hidden
+        />
+      )}
+      {gradientBottom && (
+        <div
+          className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-transparent opacity-0 transition-opacity duration-200 group-hover:opacity-100"
           aria-hidden
         />
       )}

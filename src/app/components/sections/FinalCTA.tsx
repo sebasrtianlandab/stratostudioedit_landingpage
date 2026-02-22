@@ -28,14 +28,14 @@ export function FinalCTA() {
               </div>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm">
-              <a href="https://www.tiktok.com/@strato_studio" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-primary transition-colors">
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm relative z-10">
+              <a href="https://www.tiktok.com/@strato_studio" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-primary transition-colors cursor-pointer">
                 TikTok
               </a>
-              <a href="https://www.instagram.com/_stratostudio/" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-primary transition-colors">
+              <a href="https://www.instagram.com/_stratostudio/" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-primary transition-colors cursor-pointer">
                 Instagram
               </a>
-              <a href="https://www.youtube.com/@strato_studio" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-primary transition-colors">
+              <a href="https://youtube.com/@strato_studio?si=QfVGmoxIriI0ysV2" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-primary transition-colors cursor-pointer">
                 YouTube
               </a>
             </div>
@@ -47,8 +47,8 @@ export function FinalCTA() {
         </div>
       </ScrollReveal>
 
-      <div className="absolute bottom-0 left-0 w-16 h-16 sm:w-24 sm:h-24 border-l border-b border-primary/10" />
-      <div className="absolute bottom-0 right-0 w-16 h-16 sm:w-24 sm:h-24 border-r border-b border-primary/10" />
+      <div className="absolute bottom-0 left-0 w-16 h-16 sm:w-24 sm:h-24 border-l border-b border-primary/10 pointer-events-none" aria-hidden />
+      <div className="absolute bottom-0 right-0 w-16 h-16 sm:w-24 sm:h-24 border-r border-b border-primary/10 pointer-events-none" aria-hidden />
     </Section>
   )
 }
