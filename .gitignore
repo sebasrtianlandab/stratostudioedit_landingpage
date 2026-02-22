@@ -22,5 +22,4 @@ nul
 **/nul
 modelado/nul
 
-# Videos: superan límite de GitHub (100 MB). Alojar en CDN y poner URLs en src/app/lib/videos.ts
-public/videos/
+# Videos: se versionan con Git LFS (.gitattributes). No ignorar aquí.
