@@ -5,7 +5,7 @@
  */
 
 /** Video principal del VSL. Ruta desde public/: ej. "/videos/vsl.mp4". Vacío = placeholder. */
-export const VSL_VIDEO_SRC = ''
+export const VSL_VIDEO_SRC = '/videos/ejemplos/VSL.mp4'
 
 /** Poster del VSL (opcional). Ej. "/videos/vsl-poster.jpg" */
 export const VSL_VIDEO_POSTER = ''

@@ -1,10 +1,19 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useCallback } from 'react'
 import { Section, CTAButton, PlayIcon, ScrollReveal } from '../ui'
 import { VSL_VIDEO_SRC, VSL_VIDEO_POSTER } from '../../lib/videos'
+
+function formatTime(seconds: number): string {
+  if (!Number.isFinite(seconds) || seconds < 0) return '0:00'
+  const m = Math.floor(seconds / 60)
+  const s = Math.floor(seconds % 60)
+  return `${m}:${s.toString().padStart(2, '0')}`
+}
 
 export function VSLSection() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [playing, setPlaying] = useState(false)
+  const [currentTime, setCurrentTime] = useState(0)
+  const [duration, setDuration] = useState(0)
   const hasVideo = Boolean(VSL_VIDEO_SRC)
 
   const togglePlay = () => {
@@ -17,6 +26,20 @@ export function VSLSection() {
       setPlaying(false)
     }
   }
+
+  const handleSeek = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault()
+    e.stopPropagation()
+    const video = videoRef.current
+    if (!video) return
+    const dur = video.duration
+    if (!Number.isFinite(dur) || dur <= 0) return
+    const rect = e.currentTarget.getBoundingClientRect()
+    const x = (e.clientX - rect.left) / rect.width
+    const seekTo = Math.max(0, Math.min(1, x)) * dur
+    video.currentTime = seekTo
+    setCurrentTime(seekTo)
+  }, [])
 
   return (
     <Section spacing="tight" width="default">
@@ -39,6 +62,8 @@ export function VSLSection() {
                   playsInline
                   onEnded={() => setPlaying(false)}
                   onClick={togglePlay}
+                  onTimeUpdate={() => setCurrentTime(videoRef.current?.currentTime ?? 0)}
+                  onLoadedMetadata={() => setDuration(videoRef.current?.duration ?? 0)}
                 />
                 {!playing && (
                   <button
@@ -75,9 +100,36 @@ export function VSLSection() {
                 </div>
               </>
             )}
-            <div className="absolute top-3 right-3 sm:top-4 sm:right-4 px-2 sm:px-3 py-1 bg-black/60 backdrop-blur-sm border border-primary/30">
-              <span className="text-primary text-xs tracking-wider">3:24</span>
-            </div>
+            {hasVideo && (
+              <>
+                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 px-2 sm:px-3 py-1 bg-black/60 backdrop-blur-sm border border-primary/30 z-10">
+                  <span className="text-primary text-xs tracking-wider">
+                    {formatTime(currentTime)} / {formatTime(duration)}
+                  </span>
+                </div>
+                <div
+                  className="absolute bottom-0 left-0 right-0 h-12 flex flex-col justify-center bg-gradient-to-t from-black/80 to-transparent z-10 cursor-pointer select-none"
+                  onClick={handleSeek}
+                  role="slider"
+                  aria-label="Barra de progreso: haz clic para ir a esa parte del video"
+                  aria-valuemin={0}
+                  aria-valuemax={duration}
+                  aria-valuenow={currentTime}
+                >
+                  <div className="mx-3 h-1.5 rounded-full bg-white/20 overflow-hidden pointer-events-none">
+                    <div
+                      className="h-full bg-primary transition-[width] duration-75"
+                      style={{ width: `${duration ? (currentTime / duration) * 100 : 0}%` }}
+                    />
+                  </div>
+                </div>
+              </>
+            )}
+            {!hasVideo && (
+              <div className="absolute top-3 right-3 sm:top-4 sm:right-4 px-2 sm:px-3 py-1 bg-black/60 backdrop-blur-sm border border-primary/30">
+                <span className="text-primary text-xs tracking-wider">3:24</span>
+              </div>
+            )}
           </div>
         </div>
 
